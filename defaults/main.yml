@@ -1,0 +1,126 @@
+# Standards: 0.1
+---
+# @var system_user:description: User to run user-specific commands, defaults to homebrew_user
+# system_user:
+
+# @var system_restart_freeze:description: Restart on system freeze
+system_restart_freeze: True
+
+# @var system_timezone:description: Define system timezone
+system_timezone: Europe/Berlin
+
+# @var system_enable_ntp:description: Enable networktime client
+system_using_networktime: True
+
+# @var system_display_sleep:description: Define system sleep time
+system_display_sleep: 10
+
+# @var system_computer_sleep:description: Define computer sleep time
+system_computer_sleep: 20
+
+# @var system_harddisk_sleep:description: Define disk sleep time
+system_harddisk_sleep: Never
+
+# @var system_hostname:description: Define host, computer, local and netbios name
+system_hostname: '{{ ansible_hostname }}'
+
+# @var system_auto_update:description: Enable auto update
+system_auto_update: True
+
+# @var system_auto_download:description: Enable auto download
+system_auto_download: True
+
+# @var system_critical_update:description: Enable critical update
+system_critical_update: True
+
+# @var system_login_show_user_list:description: Show login userlist
+system_login_show_user_list: False
+
+# @var system_login_admin_host_info:description: Admin host info
+system_login_admin_host_info: HostName
+
+# @var system_login_show_input_menu:description: Show input menu
+system_login_show_input_menu: True
+
+# @var system_login_guest_enabled:description: Guest login enabled
+system_login_guest_enabled: False
+
+# @var system_login_shutdown_disabled:description: Disable shutdown on login
+system_login_shutdown_disabled: True
+
+# @var system_login_restart_disabled:description: Disable restart on login
+system_login_restart_disabled: True
+
+# @var system_login_disable_autologin:description: Disable auto login
+system_login_disable_autologin: True
+
+# @var system_login_retries_until_hint:description: Retries until hint
+system_login_retries_until_hint: 0
+
+# @var system_login_user_switching:description: Login user switching
+system_login_user_switching: 1
+
+# @var system_always_keeps_windows:description: Always keep windows open on quit
+system_always_keeps_windows: False
+
+# @var system_font_smoothing:description: Apple font smoothing level
+system_font_smoothing: 2
+
+# @var system_quarantine:description: Enable system quarantine
+system_quarantine: False
+
+# @var system_quit_printer:description: Quit printer queue when jobs finished
+system_quit_printer: True
+
+# @var system_smart_quotes:description: Enable smart quote substitution
+system_smart_quotes: False
+
+# @var system_smart_dashes:description: Enable smart dash substitution
+system_smart_dashes: False
+
+# @var system_smart_caps:description: Enable smart capitalization
+system_smart_caps: False
+
+# @var system_smart_period:description: Enable smart period substitution
+system_smart_period: False
+
+# @var system_text_replacement:description: Enable automatic text replacement
+system_text_replacement: False
+
+# @var system_spelling_check:description: Eanble automatic spelling correction
+system_spelling_check: False
+
+# @var system_show_scrollbars:description: Show scrollbars behavior
+system_show_scrollbars: Always
+
+# @var system_available_languages:description: List of available system languages
+system_available_languages: [en_US, en, de_DE, de]
+
+# @var system_locale:description: Define active system locale
+system_locale: en_US@currency=EUR
+
+# @var system_measurement_unit:description: Define system measurement unit
+system_measurement_unit: Centimeters
+
+# @var system_metric_unit:description: Enable metric measurement unit
+system_metric_unit: True
+
+# @var system_notification_banner_time:description: Notification banner duration
+system_notification_banner_time: 3
+
+# @var system_siri_enabled:description: Enable siri assistant
+system_siri_enabled: True
+
+# @var system_siri_language:description: Define siri language
+system_siri_language: en-US
+
+# @var system_siri_voice_feedback:description: Use device speaker for TTS
+system_siri_voice_feedback: 3
+
+# @var system_siri_hotkey_tag:description: Define siri hotkey tag
+system_siri_hotkey_tag: 2
+
+# @var system_siri_visible:description: Enable siri status menu visibility
+system_siri_visible: True
+
+...
