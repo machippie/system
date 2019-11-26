@@ -1,6 +1,7 @@
 # Standards: 0.1
 ---
-# @var system_user:description: User to run user-specific commands, defaults to homebrew_user
+# @var system_user:description: User to run user-specific commands
+# @var system_user:value: system_user | default(homebrew_user) | default(ansible_user_id)
 # system_user:
 
 # @var system_restart_freeze:description: Restart on system freeze
