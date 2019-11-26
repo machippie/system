@@ -7,7 +7,7 @@ Always keep windows open on quit
 
 #### Default value
 
-```YAML
+```yaml
 system_always_keeps_windows: false
 ```
 
@@ -17,7 +17,7 @@ Enable auto download
 
 #### Default value
 
-```YAML
+```yaml
 system_auto_download: true
 ```
 
@@ -27,7 +27,7 @@ Enable auto update
 
 #### Default value
 
-```YAML
+```yaml
 system_auto_update: true
 ```
 
@@ -37,7 +37,7 @@ List of available system languages
 
 #### Default value
 
-```YAML
+```yaml
 system_available_languages:
   - en_US
   - en
@@ -51,7 +51,7 @@ Define computer sleep time
 
 #### Default value
 
-```YAML
+```yaml
 system_computer_sleep: 20
 ```
 
@@ -61,7 +61,7 @@ Enable critical update
 
 #### Default value
 
-```YAML
+```yaml
 system_critical_update: true
 ```
 
@@ -71,7 +71,7 @@ Define system sleep time
 
 #### Default value
 
-```YAML
+```yaml
 system_display_sleep: 10
 ```
 
@@ -85,7 +85,7 @@ Apple font smoothing level
 
 #### Default value
 
-```YAML
+```yaml
 system_font_smoothing: 2
 ```
 
@@ -95,7 +95,7 @@ Define disk sleep time
 
 #### Default value
 
-```YAML
+```yaml
 system_harddisk_sleep: Never
 ```
 
@@ -105,7 +105,7 @@ Define host, computer, local and netbios name
 
 #### Default value
 
-```YAML
+```yaml
 system_hostname: '{{ ansible_hostname }}'
 ```
 
@@ -115,7 +115,7 @@ Define active system locale
 
 #### Default value
 
-```YAML
+```yaml
 system_locale: en_US@currency=EUR
 ```
 
@@ -125,7 +125,7 @@ Admin host info
 
 #### Default value
 
-```YAML
+```yaml
 system_login_admin_host_info: HostName
 ```
 
@@ -135,7 +135,7 @@ Disable auto login
 
 #### Default value
 
-```YAML
+```yaml
 system_login_disable_autologin: true
 ```
 
@@ -145,7 +145,7 @@ Guest login enabled
 
 #### Default value
 
-```YAML
+```yaml
 system_login_guest_enabled: false
 ```
 
@@ -155,7 +155,7 @@ Disable restart on login
 
 #### Default value
 
-```YAML
+```yaml
 system_login_restart_disabled: true
 ```
 
@@ -165,7 +165,7 @@ Retries until hint
 
 #### Default value
 
-```YAML
+```yaml
 system_login_retries_until_hint: 0
 ```
 
@@ -175,7 +175,7 @@ Show input menu
 
 #### Default value
 
-```YAML
+```yaml
 system_login_show_input_menu: true
 ```
 
@@ -185,7 +185,7 @@ Show login userlist
 
 #### Default value
 
-```YAML
+```yaml
 system_login_show_user_list: false
 ```
 
@@ -195,7 +195,7 @@ Disable shutdown on login
 
 #### Default value
 
-```YAML
+```yaml
 system_login_shutdown_disabled: true
 ```
 
@@ -205,7 +205,7 @@ Login user switching
 
 #### Default value
 
-```YAML
+```yaml
 system_login_user_switching: 1
 ```
 
@@ -215,7 +215,7 @@ Define system measurement unit
 
 #### Default value
 
-```YAML
+```yaml
 system_measurement_unit: Centimeters
 ```
 
@@ -225,7 +225,7 @@ Enable metric measurement unit
 
 #### Default value
 
-```YAML
+```yaml
 system_metric_unit: true
 ```
 
@@ -235,7 +235,7 @@ Notification banner duration
 
 #### Default value
 
-```YAML
+```yaml
 system_notification_banner_time: 3
 ```
 
@@ -245,7 +245,7 @@ Enable system quarantine
 
 #### Default value
 
-```YAML
+```yaml
 system_quarantine: false
 ```
 
@@ -255,7 +255,7 @@ Quit printer queue when jobs finished
 
 #### Default value
 
-```YAML
+```yaml
 system_quit_printer: true
 ```
 
@@ -265,7 +265,7 @@ Restart on system freeze
 
 #### Default value
 
-```YAML
+```yaml
 system_restart_freeze: true
 ```
 
@@ -275,7 +275,7 @@ Show scrollbars behavior
 
 #### Default value
 
-```YAML
+```yaml
 system_show_scrollbars: Always
 ```
 
@@ -285,7 +285,7 @@ Enable siri assistant
 
 #### Default value
 
-```YAML
+```yaml
 system_siri_enabled: true
 ```
 
@@ -295,7 +295,7 @@ Define siri hotkey tag
 
 #### Default value
 
-```YAML
+```yaml
 system_siri_hotkey_tag: 2
 ```
 
@@ -305,7 +305,7 @@ Define siri language
 
 #### Default value
 
-```YAML
+```yaml
 system_siri_language: en-US
 ```
 
@@ -315,7 +315,7 @@ Enable siri status menu visibility
 
 #### Default value
 
-```YAML
+```yaml
 system_siri_visible: true
 ```
 
@@ -325,7 +325,7 @@ Use device speaker for TTS
 
 #### Default value
 
-```YAML
+```yaml
 system_siri_voice_feedback: 3
 ```
 
@@ -335,7 +335,7 @@ Enable smart capitalization
 
 #### Default value
 
-```YAML
+```yaml
 system_smart_caps: false
 ```
 
@@ -345,7 +345,7 @@ Enable smart dash substitution
 
 #### Default value
 
-```YAML
+```yaml
 system_smart_dashes: false
 ```
 
@@ -355,7 +355,7 @@ Enable smart period substitution
 
 #### Default value
 
-```YAML
+```yaml
 system_smart_period: false
 ```
 
@@ -365,7 +365,7 @@ Enable smart quote substitution
 
 #### Default value
 
-```YAML
+```yaml
 system_smart_quotes: false
 ```
 
@@ -375,7 +375,7 @@ Eanble automatic spelling correction
 
 #### Default value
 
-```YAML
+```yaml
 system_spelling_check: false
 ```
 
@@ -385,7 +385,7 @@ Enable automatic text replacement
 
 #### Default value
 
-```YAML
+```yaml
 system_text_replacement: false
 ```
 
@@ -395,7 +395,7 @@ Define system timezone
 
 #### Default value
 
-```YAML
+```yaml
 system_timezone: Europe/Berlin
 ```
 
@@ -405,7 +405,7 @@ User to run user-specific commands
 
 #### Default value
 
-```YAML
+```yaml
 system_user | default(homebrew_user) | default(ansible_user_id)
 ```
 
@@ -413,7 +413,7 @@ system_user | default(homebrew_user) | default(ansible_user_id)
 
 #### Default value
 
-```YAML
+```yaml
 system_using_networktime: true
 ```
 ## Dependencies
