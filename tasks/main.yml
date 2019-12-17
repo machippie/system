@@ -2,72 +2,72 @@
 ---
 - name: Fact system user
   set_fact:
-    system_user: '{{ system_user | default(homebrew_user) | default(ansible_user_id) }}'
+    system_user: "{{ system_user | default(homebrew_user) | default(ansible_user_id) }}"
   tags:
     - system
 
 - name: Disable hibernate mode
-  command: 'pmset -a hibernatemode 0'
+  command: "pmset -a hibernatemode 0"
   changed_when: False
   tags:
     - system
 
 - name: Disable motion sensor
-  command: 'pmset -a sms 0'
+  command: "pmset -a sms 0"
   changed_when: False
   tags:
     - system
 
 - name: Restart system freeze
-  command: 'systemsetup -setrestartfreeze {{ "on" if system_restart_freeze else "off" }}'
+  command: "systemsetup -setrestartfreeze {{ 'on' if system_restart_freeze else 'off' }}"
   changed_when: False
   tags:
     - system
 
 - name: Define system timezone
-  command: 'systemsetup -settimezone {{ system_timezone }}'
+  command: "systemsetup -settimezone {{ system_timezone }}"
   changed_when: False
   tags:
     - system
 
 - name: Enable networktime client
-  command: 'systemsetup -setusingnetworktime {{ "on" if system_using_networktime else "off" }}'
+  command: "systemsetup -setusingnetworktime {{ 'on' if system_using_networktime else 'off' }}"
   changed_when: False
   tags:
     - system
 
 - name: Define display sleep
-  command: 'systemsetup -setdisplaysleep {{ system_display_sleep }}'
+  command: "systemsetup -setdisplaysleep {{ system_display_sleep }}"
   changed_when: False
   tags:
     - system
 
 - name: Define computer sleep
-  command: 'systemsetup -setcomputersleep {{ system_computer_sleep }}'
+  command: "systemsetup -setcomputersleep {{ system_computer_sleep }}"
   changed_when: False
   tags:
     - system
 
 - name: Define harddisk sleep
-  command: 'systemsetup -setharddisksleep {{ system_harddisk_sleep }}'
+  command: "systemsetup -setharddisksleep {{ system_harddisk_sleep }}"
   changed_when: False
   tags:
     - system
 
 - name: Define computer name
-  command: 'scutil --set ComputerName {{ system_hostname }}'
+  command: "scutil --set ComputerName {{ system_hostname }}"
   changed_when: False
   tags:
     - system
 
 - name: Define host name
-  command: 'scutil --set HostName {{ system_hostname }}'
+  command: "scutil --set HostName {{ system_hostname }}"
   changed_when: False
   tags:
     - system
 
 - name: Define local name
-  command: 'scutil --set LocalHostName {{ system_hostname }}'
+  command: "scutil --set LocalHostName {{ system_hostname }}"
   changed_when: False
   tags:
     - system
@@ -77,7 +77,7 @@
     domain: /Library/Preferences/SystemConfiguration/com.apple.smb.server
     key: NetBIOSName
     type: string
-    value: '{{ system_hostname }}'
+    value: "{{ system_hostname }}"
     state: present
   tags:
     - system
@@ -87,7 +87,7 @@
     domain: /Library/Preferences/com.apple.commerce
     key: AutoUpdate
     type: bool
-    value: '{{ system_auto_update }}'
+    value: "{{ system_auto_update }}"
     state: present
   tags:
     - system
@@ -97,7 +97,7 @@
     domain: /Library/Preferences/com.apple.SoftwareUpdate
     key: AutomaticDownload
     type: bool
-    value: '{{ system_auto_download }}'
+    value: "{{ system_auto_download }}"
     state: present
   tags:
     - system
@@ -107,7 +107,7 @@
     domain: /Library/Preferences/com.apple.SoftwareUpdate
     key: CriticalUpdateInstall
     type: bool
-    value: '{{ system_critical_update }}'
+    value: "{{ system_critical_update }}"
     state: present
   tags:
     - system
@@ -117,7 +117,7 @@
     domain: /Library/Preferences/com.apple.loginwindow
     key: SHOWFULLNAME
     type: bool
-    value: '{{ system_login_show_user_list }}'
+    value: "{{ system_login_show_user_list }}"
     state: present
   tags:
     - system
@@ -127,7 +127,7 @@
     domain: /Library/Preferences/com.apple.loginwindow
     key: AdminHostInfo
     type: string
-    value: '{{ system_login_admin_host_info }}'
+    value: "{{ system_login_admin_host_info }}"
     state: present
   tags:
     - system
@@ -137,7 +137,7 @@
     domain: /Library/Preferences/com.apple.loginwindow
     key: showInputMenu
     type: bool
-    value: '{{ system_login_show_input_menu }}'
+    value: "{{ system_login_show_input_menu }}"
     state: present
   tags:
     - system
@@ -147,7 +147,7 @@
     domain: /Library/Preferences/com.apple.loginwindow
     key: GuestEnabled
     type: bool
-    value: '{{ system_login_guest_enabled }}'
+    value: "{{ system_login_guest_enabled }}"
     state: present
   tags:
     - system
@@ -157,7 +157,7 @@
     domain: /Library/Preferences/com.apple.loginwindow
     key: ShutDownDisabled
     type: bool
-    value: '{{ system_login_shutdown_disabled }}'
+    value: "{{ system_login_shutdown_disabled }}"
     state: present
   tags:
     - system
@@ -167,7 +167,7 @@
     domain: /Library/Preferences/com.apple.loginwindow
     key: RestartDisabled
     type: bool
-    value: '{{ system_login_restart_disabled }}'
+    value: "{{ system_login_restart_disabled }}"
     state: present
   tags:
     - system
@@ -177,20 +177,20 @@
     domain: /Library/Preferences/com.apple.loginwindow
     key: DisableFDEAutoLogin
     type: bool
-    value: '{{ system_login_disable_autologin }}'
+    value: "{{ system_login_disable_autologin }}"
     state: present
   tags:
     - system
 
-- become: '{{ (system_user != ansible_user_id) | bool }}'
-  become_user: '{{ system_user }}'
+- become: "{{ (system_user != ansible_user_id) | bool }}"
+  become_user: "{{ system_user }}"
   block:
     - name: Retries until hint
       osx_defaults:
         domain: NSGlobalDomain
         key: RetriesUntilHint
         type: int
-        value: '{{ system_login_retries_until_hint }}'
+        value: "{{ system_login_retries_until_hint }}"
         state: present
       tags:
         - system
@@ -200,7 +200,7 @@
         domain: NSGlobalDomain
         key: userMenuExtraStyle
         type: int
-        value: '{{ system_login_user_switching }}'
+        value: "{{ system_login_user_switching }}"
         state: present
       tags:
         - system
@@ -210,7 +210,7 @@
         domain: NSGlobalDomain
         key: NSQuitAlwaysKeepsWindows
         type: bool
-        value: '{{ system_always_keeps_windows }}'
+        value: "{{ system_always_keeps_windows }}"
         state: present
       tags:
         - system
@@ -220,7 +220,7 @@
         domain: NSGlobalDomain
         key: AppleFontSmoothing
         type: int
-        value: '{{ system_font_smoothing }}'
+        value: "{{ system_font_smoothing }}"
         state: present
       tags:
         - system
@@ -230,7 +230,7 @@
         domain: com.apple.LaunchServices
         key: LSQuarantine
         type: bool
-        value: '{{ system_quarantine }}'
+        value: "{{ system_quarantine }}"
         state: present
       tags:
         - system
@@ -240,7 +240,7 @@
         domain: com.apple.print.PrintingPrefs
         key: Quit When Finished
         type: bool
-        value: '{{ system_quit_printer }}'
+        value: "{{ system_quit_printer }}"
         state: present
       tags:
         - system
@@ -250,7 +250,7 @@
         domain: NSGlobalDomain
         key: NSAutomaticQuoteSubstitutionEnabled
         type: bool
-        value: '{{ system_smart_quotes }}'
+        value: "{{ system_smart_quotes }}"
         state: present
       tags:
         - system
@@ -260,7 +260,7 @@
         domain: NSGlobalDomain
         key: NSAutomaticDashSubstitutionEnabled
         type: bool
-        value: '{{ system_smart_dashes }}'
+        value: "{{ system_smart_dashes }}"
         state: present
       tags:
         - system
@@ -270,7 +270,7 @@
         domain: NSGlobalDomain
         key: NSAutomaticCapitalizationEnabled
         type: bool
-        value: '{{ system_smart_caps }}'
+        value: "{{ system_smart_caps }}"
         state: present
       tags:
         - system
@@ -280,7 +280,7 @@
         domain: NSGlobalDomain
         key: NSAutomaticPeriodSubstitutionEnabled
         type: bool
-        value: '{{ system_smart_period }}'
+        value: "{{ system_smart_period }}"
         state: present
       tags:
         - system
@@ -290,7 +290,7 @@
         domain: NSGlobalDomain
         key: WebAutomaticTextReplacementEnabled
         type: bool
-        value: '{{ system_text_replacement }}'
+        value: "{{ system_text_replacement }}"
         state: present
       tags:
         - system
@@ -300,7 +300,7 @@
         domain: NSGlobalDomain
         key: NSAutomaticSpellingCorrectionEnabled
         type: bool
-        value: '{{ system_spelling_check }}'
+        value: "{{ system_spelling_check }}"
         state: present
       tags:
         - system
@@ -310,7 +310,7 @@
         domain: NSGlobalDomain
         key: AppleShowScrollBars
         type: string
-        value: '{{ system_show_scrollbars }}'
+        value: "{{ system_show_scrollbars }}"
         state: present
       tags:
         - system
@@ -320,7 +320,7 @@
         domain: NSGlobalDomain
         key: AppleLanguages
         type: array
-        value: '{{ system_available_languages }}'
+        value: "{{ system_available_languages }}"
         state: present
       tags:
         - system
@@ -330,7 +330,7 @@
         domain: NSGlobalDomain
         key: AppleLocale
         type: string
-        value: '{{ system_locale }}'
+        value: "{{ system_locale }}"
         state: present
       tags:
         - system
@@ -340,7 +340,7 @@
         domain: NSGlobalDomain
         key: AppleMeasurementUnits
         type: string
-        value: '{{ system_measurement_unit }}'
+        value: "{{ system_measurement_unit }}"
         state: present
       tags:
         - system
@@ -350,7 +350,7 @@
         domain: NSGlobalDomain
         key: AppleMetricUnits
         type: bool
-        value: '{{ system_metric_unit }}'
+        value: "{{ system_metric_unit }}"
         state: present
       tags:
         - system
@@ -360,7 +360,7 @@
         domain: com.apple.notificationcenterui
         key: bannerTime
         type: int
-        value: '{{ system_notification_banner_time }}'
+        value: "{{ system_notification_banner_time }}"
         state: present
       tags:
         - system
@@ -370,7 +370,7 @@
         domain: com.apple.assistant.support
         key: Assistant Enabled
         type: bool
-        value: '{{ system_siri_enabled }}'
+        value: "{{ system_siri_enabled }}"
         state: present
       tags:
         - system
@@ -380,7 +380,7 @@
         domain: com.apple.assistant.backedup
         key: Session Language
         type: string
-        value: '{{ system_siri_language }}'
+        value: "{{ system_siri_language }}"
         state: present
       tags:
         - system
@@ -390,7 +390,7 @@
         domain: com.apple.assistant.backedup
         key: Use device speaker for TTS
         type: int
-        value: '{{ system_siri_voice_feedback }}'
+        value: "{{ system_siri_voice_feedback }}"
         state: present
       tags:
         - system
@@ -400,7 +400,7 @@
         domain: com.apple.Siri
         key: HotkeyTag
         type: int
-        value: '{{ system_siri_hotkey_tag }}'
+        value: "{{ system_siri_hotkey_tag }}"
         state: present
       tags:
         - system
@@ -410,7 +410,7 @@
         domain: com.apple.Siri
         key: StatusMenuVisible
         type: bool
-        value: '{{ system_siri_visible }}'
+        value: "{{ system_siri_visible }}"
         state: present
       tags:
         - system
