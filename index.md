@@ -269,6 +269,16 @@ Restart on system freeze
 system_restart_freeze: true
 ```
 
+### system_screensaver_ask_for_password
+
+Screensaver requires login password
+
+#### Default value
+
+```yaml
+system_screensaver_ask_for_password: 1
+```
+
 ### system_show_scrollbars
 
 Show scrollbars behavior
