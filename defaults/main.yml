@@ -61,9 +61,6 @@ system_login_retries_until_hint: 0
 # @var system_login_user_switching:description: Login user switching
 system_login_user_switching: 1
 
-# @var system_screensaver_ask_for_password:description: Screensaver requires login password
-system_screensaver_ask_for_password: 1
-
 # @var system_always_keeps_windows:description: Always keep windows open on quit
 system_always_keeps_windows: False
 
