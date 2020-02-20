@@ -205,6 +205,16 @@
       tags:
         - system
 
+    - name: Screensaver requires login password
+      osx_defaults:
+        domain: com.apple.screensaver
+        key: askForPassword
+        type: int
+        value: "{{ system_screensaver_ask_for_password }}"
+        state: present
+      tags:
+        - system
+
     - name: Always keep windows
       osx_defaults:
         domain: NSGlobalDomain
