@@ -142,7 +142,7 @@
   tags:
     - system
 
-- name: Guest login enabled
+- name: Gues login enabled
   osx_defaults:
     domain: /Library/Preferences/com.apple.loginwindow
     key: GuestEnabled
@@ -201,16 +201,6 @@
         key: userMenuExtraStyle
         type: int
         value: "{{ system_login_user_switching }}"
-        state: present
-      tags:
-        - system
-
-    - name: Screensaver requires login password
-      osx_defaults:
-        domain: com.apple.screensaver
-        key: askForPassword
-        type: int
-        value: "{{ system_screensaver_ask_for_password }}"
         state: present
       tags:
         - system
