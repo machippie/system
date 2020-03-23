@@ -6,12 +6,6 @@
   tags:
     - system
 
-- name: Disable hibernate mode
-  command: "pmset -a hibernatemode 0"
-  changed_when: False
-  tags:
-    - system
-
 - name: Disable motion sensor
   command: "pmset -a sms 0"
   changed_when: False
@@ -55,24 +49,28 @@
     - system
 
 - name: Define computer name
-  command: "scutil --set ComputerName {{ system_hostname }}"
+  when: system_hostname | default(False)
   changed_when: False
+  command: "scutil --set ComputerName {{ system_hostname }}"
   tags:
     - system
 
 - name: Define host name
-  command: "scutil --set HostName {{ system_hostname }}"
+  when: system_hostname | default(False)
   changed_when: False
+  command: "scutil --set HostName {{ system_hostname }}"
   tags:
     - system
 
 - name: Define local name
-  command: "scutil --set LocalHostName {{ system_hostname }}"
+  when: system_hostname | default(False)
   changed_when: False
+  command: "scutil --set LocalHostName {{ system_hostname }}"
   tags:
     - system
 
 - name: Define NetBIOS name
+  when: system_hostname | default(False)
   osx_defaults:
     domain: /Library/Preferences/SystemConfiguration/com.apple.smb.server
     key: NetBIOSName
@@ -142,7 +140,7 @@
   tags:
     - system
 
-- name: Gues login enabled
+- name: Guest login enabled
   osx_defaults:
     domain: /Library/Preferences/com.apple.loginwindow
     key: GuestEnabled
